@@ -17,8 +17,7 @@ import java.util.logging.Logger;
 // MORE EFFICIENT AND BETTER CHECKS SHOULD
 // BE USED IN PRODUCTION
 
-@CheckData(name = "Check (B" +
-        ")", description = "Generic Heuristic Check", bufferDecay = 0.25)
+@CheckData(name = "Check (B)", description = "Generic Heuristic Check", bufferDecay = 0.25)
 public class CheckB extends AbstractCheck {
     Map<String, List<Long>> urlToTime = new HashMap<>();
 
@@ -63,7 +62,7 @@ public class CheckB extends AbstractCheck {
 
         urlToTime.put(destAddress, list);
 
-        int howManyTimesRequested = urlToTime.get(destAddress).size();
+        int howManyTimesRequested = list.size();
 
         if (howManyTimesRequested >= urlToTime.size() / 1.5F && howManyTimesRequested >= 100) {
             if (++buffer > 15) {
