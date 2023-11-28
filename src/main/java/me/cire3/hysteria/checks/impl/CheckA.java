@@ -40,9 +40,9 @@ public class CheckA extends AbstractCheck {
         if (packets.size() >= 500) {
             if (++buffer > 3) {
                 flag(pkt);
+                packets.clear();
                 return true;
-            }
-            packets.clear();
+            
             tillNextDecay = 300;
         }
 
