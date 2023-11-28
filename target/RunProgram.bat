@@ -1,0 +1,1 @@
+java -cp DetectDDoS-1.0-SNAPSHOT.jar;libs/*; me.cire3.hysteria.MainClass
