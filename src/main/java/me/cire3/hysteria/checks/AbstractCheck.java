@@ -53,6 +53,7 @@ public abstract class AbstractCheck {
 
         user.flag();
         flagged = true;
+        buffer = 0;
     }
 
     protected final void decayBuffer() {

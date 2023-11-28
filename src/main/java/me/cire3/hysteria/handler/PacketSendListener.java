@@ -12,10 +12,6 @@ import java.util.logging.Logger;
 
 @Getter
 public class PacketSendListener {
-    private static final String COUNT_KEY = PacketSendListener.class.getName() + ".count";
-//    private static final int COUNT = Integer.getInteger(COUNT_KEY, 5);
-    private static final int COUNT = 500;
-
     private static final String READ_TIMEOUT_KEY = PacketSendListener.class.getName() + ".readTimeout";
     private static final int READ_TIMEOUT = Integer.getInteger(READ_TIMEOUT_KEY, 10); // [ms]
 
@@ -37,7 +33,6 @@ public class PacketSendListener {
     public static void startListening(User user, Logger logger) throws PcapNativeException, NotOpenException {
         String filter = "";
 
-        logger.info(COUNT_KEY + ": " + COUNT);
         logger.info(READ_TIMEOUT_KEY + ": " + READ_TIMEOUT);
         logger.info(SNAPLEN_KEY + ": " + SNAPLEN);
         logger.info(BUFFER_SIZE_KEY + ": " + BUFFER_SIZE);
@@ -90,7 +85,7 @@ public class PacketSendListener {
                 num++;
                 user.getCheckManager().check(packet);
 
-                if (user.getTrustFactor() > 500)
+                if (user.getTrustFactor() > 500 || num >= 3000)
                     break;
             }
         }
