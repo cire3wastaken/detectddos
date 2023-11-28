@@ -42,7 +42,7 @@ public class CheckA extends AbstractCheck {
                 flag(pkt);
                 packets.clear();
                 return true;
-            
+            }
             tillNextDecay = 300;
         }
 
